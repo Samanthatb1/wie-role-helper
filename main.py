@@ -28,6 +28,7 @@ subteamChoiceOptions = [
   app_commands.Choice(name="podcast", value="podcast director"),
   app_commands.Choice(name="mentorship", value="mentorship director"),
   app_commands.Choice(name="graphics", value="graphics director"),
+  app_commands.Choice(name="advocacy", value="advocacy director"),
   app_commands.Choice(name="wie coordinator", value="wie coordinator"),
   app_commands.Choice(name="wie co-op", value="wie co-op"),
 ]
@@ -58,7 +59,7 @@ async def subteamInfo(interaction):
     embed.add_field(name=role.name, value=listOfUsers)
 
     # spacing
-    if role.name == "discord" or role.name == "podcast" or role.name == "wie coordinator":
+    if role.name == "discord" or role.name == "podcast" or role.name == "advocacy":
       embed.add_field(name=" ", value=" ")
       embed.add_field(name=" ", value=" ")
       embed.add_field(name=" ", value=" ")
@@ -75,8 +76,8 @@ async def subteamInfo(interaction):
         listOfUsers += " \n" 
   
   if listOfUsers != "":
-    embed.add_field(name=" ", value=" ")
-    embed.add_field(name=" ", value=" ")
+    # embed.add_field(name=" ", value=" ")
+    # embed.add_field(name=" ", value=" ")
     embed.add_field(name="People with Director role but no Sub Team role", value=listOfUsers)
 
   await interaction.response.send_message(embed=embed)
@@ -104,7 +105,7 @@ async def addRole(interaction, user_who_needs_role: discord.Member, role:app_com
 
   # send update to the user
   embed = discord.Embed(title="Status", color=discord.Color.purple(), 
-                        description=f"added to {user_who_needs_role.mention}")
+                        description=f"added to {user_who_needs_role.nick} ({user_who_needs_role.mention})")
   embed.add_field(name="Roles Added:", value=f"{role.value} \n Director")
   await interaction.response.send_message(embed=embed)
 
@@ -131,7 +132,7 @@ async def removeRole(interaction, user_to_remove_role: discord.Member, role:app_
 
   # send update to the user
   embed = discord.Embed(title="Status", color=discord.Color.purple(), 
-                        description=f"removed from {user_to_remove_role.mention}")
+                        description=f"removed from {user_to_remove_role.nick} ({user_to_remove_role.mention})")
   embed.add_field(name="Roles Removed:", value=f"{role.value} \n Director")
   await interaction.response.send_message(embed=embed)
 
