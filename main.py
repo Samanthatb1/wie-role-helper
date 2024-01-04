@@ -20,15 +20,15 @@ async def on_ready():
 # constants
 #########################
 subteamChoiceOptions = [
-  app_commands.Choice(name="VP", value="VP"),
-  app_commands.Choice(name="outreach", value="outreach director"),
+  app_commands.Choice(name="pres / vp", value="VP - Term A"),
+  app_commands.Choice(name="sponsorship", value="sponsorship director"),
   app_commands.Choice(name="discord", value="discord director"),
   app_commands.Choice(name="socials", value="socials director"),
   app_commands.Choice(name="events", value="events director"),
-  app_commands.Choice(name="podcast", value="podcast director"),
+  app_commands.Choice(name="promotions/liaison", value="promotions/liaison director"),
   app_commands.Choice(name="mentorship", value="mentorship director"),
   app_commands.Choice(name="graphics", value="graphics director"),
-  app_commands.Choice(name="advocacy", value="advocacy director"),
+  app_commands.Choice(name="volunteer", value="volunteer director"),
   app_commands.Choice(name="wie coordinator", value="wie coordinator"),
   app_commands.Choice(name="wie co-op", value="wie co-op"),
 ]
@@ -79,7 +79,7 @@ async def subteamInfo(interaction):
     # embed.add_field(name=" ", value=" ")
     # embed.add_field(name=" ", value=" ")
     embed.add_field(name="People with Director role but no Sub Team role", value=listOfUsers)
-
+  
   await interaction.response.send_message(embed=embed)
 
 
